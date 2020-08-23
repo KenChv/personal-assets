@@ -131,7 +131,7 @@
 	<key>description</key>
 	<string>Simple windows manager</string>
 	<key>disabled</key>
-	<false/>
+	<true/>
 	<key>name</key>
 	<string>Div</string>
 	<key>objects</key>
