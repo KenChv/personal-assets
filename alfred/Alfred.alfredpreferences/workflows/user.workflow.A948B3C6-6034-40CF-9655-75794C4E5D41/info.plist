@@ -19,6 +19,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>3D33A55B-0ABC-44AD-B253-5882B2B239A0</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>4FE4A961-98AF-46C9-98D9-224100C39409</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>7686C74A-A33F-49C2-8231-40F1569A481A</key>
 		<array/>
 		<key>A03FEDD9-1618-49AB-B83D-2F7777BECAC0</key>
@@ -143,6 +156,55 @@ end alfred_script</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>alac</string>
+				<key>subtext</key>
+				<string>in open Alacirtty window</string>
+				<key>text</key>
+				<string>Open topmost Finder folder in Alacritty</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>3D33A55B-0ABC-44AD-B253-5882B2B239A0</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script(q)
+  set finderPath to ""
+
+tell application "Finder"
+  try
+    set finderFolder to (folder of the front window as alias)
+  on error
+    set finderFolder to (path to home folder as alias)
+  end try
+  set finderPath to quoted form of POSIX path of finderFolder
+end tell
+
+do shell script "open -na alacritty --args --working-directory=" &amp; finderPath
+end alfred_script</string>
+				<key>cachescript</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>4FE4A961-98AF-46C9-98D9-224100C39409</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -154,6 +216,20 @@ end alfred_script</string>
 			<integer>50</integer>
 			<key>ypos</key>
 			<integer>50</integer>
+		</dict>
+		<key>3D33A55B-0ABC-44AD-B253-5882B2B239A0</key>
+		<dict>
+			<key>xpos</key>
+			<integer>50</integer>
+			<key>ypos</key>
+			<integer>295</integer>
+		</dict>
+		<key>4FE4A961-98AF-46C9-98D9-224100C39409</key>
+		<dict>
+			<key>xpos</key>
+			<integer>275</integer>
+			<key>ypos</key>
+			<integer>295</integer>
 		</dict>
 		<key>7686C74A-A33F-49C2-8231-40F1569A481A</key>
 		<dict>
